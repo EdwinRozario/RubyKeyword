@@ -1,0 +1,4 @@
+rubykeyword is a gem that lets you know if a string is a Ruby Keyword or not.
+.define for the string will return the description for the keyword.
+
+Data reference : http://ruby-doc.org/docs/keywords/1.9/
