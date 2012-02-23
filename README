@@ -1,4 +1,18 @@
 rubykeyword is a gem that lets you know if a string is a Ruby Keyword or not.
-.define for the string will return the description for the keyword.
+
+The gem has only two methodes as of now.
+keyword and define
+
+Use:
+
+require 'rubygems'
+require 'rubykeyword'
+
+example_string1 = "Thor"
+example_string2 = "end"
+
+example_srting1.keyword # Will return false since its not a ruby keyword
+example_srting2.keyword # Will return true as end is a ruby keyword
+example_srting2.define # Will return definition for keyword end
 
 Data reference : http://ruby-doc.org/docs/keywords/1.9/
