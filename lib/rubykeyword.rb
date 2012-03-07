@@ -3,7 +3,7 @@ require 'yaml'
 class String
 
   def set_keywords
-    @keywords = YAML::load( File.open( 'settings.yaml' ) )
+    @keywords = YAML::load( File.open( "#{File.expand_path File.dirname(__FILE__)}/settings.yaml" ) )
   end
 
   def keyword?
@@ -16,15 +16,23 @@ class String
     return keyword? ? @keywords[self]['definition'] : false
   end
 
+
+  def example_string
+    set_keywords
+    if keyword?
+      return @keywords[self].has_key?('example') ? @keywords[self]['example'].join("\n") : "No example"
+    else
+      return false
+    end
+  end
+  
   def example
     set_keywords
     if keyword?
-      return @keywords[self].has_key?('example') ? @keywords[self]['example'] : 'No example'
+      puts @keywords[self].has_key?('example') ? @keywords[self]['example'].join("\n") : "No example"
     else
       return false
     end
   end
 
 end
-
-puts "def".define
