@@ -11,8 +11,9 @@ require 'rubykeyword'
 example_string1 = "Thor"
 example_string2 = "end"
 
-example_srting1.keyword # Will return false since its not a ruby keyword
-example_srting2.keyword # Will return true as end is a ruby keyword
+example_srting1.keyword? # Will return false since its not a ruby keyword
+example_srting2.keyword? # Will return true as end is a ruby keyword
 example_srting2.define # Will return definition for keyword end
+exaple_string.example # Will return a example for the keyword use
 
 Data reference : http://ruby-doc.org/docs/keywords/1.9/
