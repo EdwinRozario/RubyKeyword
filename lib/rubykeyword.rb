@@ -16,6 +16,25 @@ class String
     return keyword? ? @keywords[self]['definition'] : false
   end
 
+  def distance hip, hop
+    case
+      when hip.empty? then hop.length
+      when hop.empty? then  hip.length
+      else 
+        [(hip[0] == hop[0] ? 0 : 1) + distance(hip[1..-1], hop[1..-1]),
+         1 + distance(hip[1..-1], hop),
+         1 + distance(hop, hip[1..-1])].min
+    end
+  end
+
+  def seek
+    set_keywords
+    result = []
+    @keywords.keys.each do |keyword|
+      result << keyword if distance(self.downcase, keyword.downcase) <= keyword.length / 2
+    end
+    result
+  end
 
   def example_string
     set_keywords
